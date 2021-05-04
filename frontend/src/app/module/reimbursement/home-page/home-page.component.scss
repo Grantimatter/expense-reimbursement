@@ -1,0 +1,54 @@
+@import "../../../variables.scss";
+
+#home-page {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+table {
+    width: 75vw;
+    height: 50%;
+}
+
+#filters {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 1em;
+}
+
+#filter {
+    //width: 25%; 
+    color: lightgray;
+}
+
+.flexrow {
+    display: flex;
+    flex-flow: row;
+    width: 75vw;
+}
+
+button {
+    height: fit-content;
+    width: fit-content;
+}
+
+.dp-02{
+    background: #222222;
+}
+
+.approved {
+    background-color: $approved;
+}
+
+.denied {
+    background-color: $denied;
+}
+
+.pending {
+    background-color: $pending;
+}

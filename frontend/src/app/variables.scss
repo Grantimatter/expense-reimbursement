@@ -1,0 +1,10 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$denied-color: mat-palette($mat-red, 700, 100, 900);
+$approved-color: mat-palette($mat-green, 800, 100, 900);
+$pending-color: mat-palette($mat-blue-gray, 800, 100, 900);
+
+$denied: mat-color($denied-color);
+$approved: mat-color($approved-color);
+$pending: mat-color($pending-color);

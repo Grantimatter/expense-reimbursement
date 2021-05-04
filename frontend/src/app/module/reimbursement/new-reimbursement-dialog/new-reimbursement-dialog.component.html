@@ -1,0 +1,35 @@
+<h2 mat-dialog-title align="center">New Reimbursement Request</h2>
+<mat-dialog-content class="flex-column-wrap">
+
+    <div class="flex-row-wrap flex-gap-1">
+        <!-- Amount Field -->
+        <mat-form-field>
+            <mat-label>Amount</mat-label>
+            <input matInput formControlName="amount" type="number" placeholder="42.00" autocomplete="cc-number"
+                required>
+            <mat-icon matSuffix>dollar</mat-icon>
+        </mat-form-field>
+
+        <!-- Type Field -->
+        <mat-form-field>
+            <mat-label>Reason</mat-label>
+            <mat-select [(value)]="typeInput">
+                <mat-option value="lodging">Lodging</mat-option>
+                <mat-option value="travel">Travel</mat-option>
+                <mat-option value="food">Food</mat-option>
+                <mat-option value="other">Other</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <!-- Description Field -->
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
+</mat-dialog-actions>

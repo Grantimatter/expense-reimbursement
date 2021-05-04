@@ -1,0 +1,18 @@
+<div id="login-page">
+    <div class="dp-01" id="login-form">
+        <form [formGroup]="loginForm" (submit)="submit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Username / Email</mat-label>
+                <input matInput formControlName="usernameOrEmail" type="text" placeholder="JohnSmith@gmail.com" autocomplete="email" required>
+                <mat-icon matSuffix>info</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" placeholder="password" autocomplete="current-password" required>
+                <mat-icon matSuffix>lock</mat-icon>
+                <!-- <mat-error *ngIf=""></mat-error> -->
+            </mat-form-field>
+            <button mat-raised-button color="accent" type="submit">Login</button>
+        </form>
+    </div>
+</div>

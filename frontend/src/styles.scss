@@ -1,0 +1,98 @@
+@import "~@angular/material/theming";
+@include mat-core();
+$app-primary: mat-palette($mat-pink, 500, 100, 900);
+$app-accent: mat-palette($mat-indigo, A200, A100, A400);
+$app-warn: mat-palette($mat-red);
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+$angular-default-theme: mat-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warn,
+    ),
+  )
+);
+@include angular-material-theme($angular-default-theme);
+
+$angular-dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warn,
+    ),
+  )
+);
+.darkMode {
+  @include angular-material-color($angular-dark-theme);
+}
+
+:root {
+    --dp-00: #121212;
+    --dp-01: #1e1e1e;
+    --dp-02: #222222;
+    --dp-03: #242424;
+    --dp-04: #272727;
+    --dp-06: #2c2c2c;
+    --dp-08: #2e2e2e;
+    --dp-12: #333333;
+    --dp-16: #353535;
+    --dp-24: #383838;
+}
+
+.shadow {
+  box-shadow: 0px 3px 20px rgba($color: #000000, $alpha: 0.4);
+}
+
+.dp-00, body {
+    background-color: var(--dp-00);
+    background: var(--dp-00);;
+}
+
+.dp-01 {
+    background-color: var(--dp-01);
+    background: var(--dp-01);
+}
+
+.dp-02 {
+    background-color: var(--dp-02);
+    background: var(--dp-02);
+}
+
+.dp-03 {
+    background-color: var(--dp-03);
+    background: var(--dp-03);
+}
+
+.dp-04 {
+    background-color: var(--dp-04);
+    background: var(--dp-04);
+}
+
+.dp-06 {
+    background-color: var(--dp-06);
+    background: var(--dp-06);
+}
+
+.dp-08 {
+    background-color: var(--dp-08);
+    background: var(--dp-08);
+}
+
+.dp-12 {
+    background-color: var(--dp-12);
+    background: var(--dp-12);
+}
+
+.dp-16 {
+    background-color: var(--dp-16);
+    background: var(--dp-16);
+}
+
+.dp-24 {
+    background-color: var(--dp-24);
+    background: var(--dp-24);
+}

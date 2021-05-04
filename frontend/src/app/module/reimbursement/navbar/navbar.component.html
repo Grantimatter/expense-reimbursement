@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon [routerLink]="'/home'">account_balance</mat-icon>
+  </button>
+  <h1>Reimbursements++</h1>
+  <span *ngFor="let link of links" style="margin-left: 6px;">
+    <button mat-button [routerLink]="[link.uri]"> {{link.title}} </button>
+  </span>
+  <span class="menu-spacer"></span>
+  <ng-template *ngIf="user | async">
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_box</mat-icon>
+      {{user.value.username | titlecase}}
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+  </ng-template>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
+</mat-toolbar>
