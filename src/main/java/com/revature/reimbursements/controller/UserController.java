@@ -98,6 +98,11 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
+    /**
+     * Gets the user that is currently logged in
+     * @param request The HttpServletRequest needed to create a new session if the credentials match
+     * @return Returns the user object if there is a user logged in.
+     */
     @GetMapping("/check")
     public ResponseEntity<User> checkUserLogin(HttpServletRequest request) {
         User sessionUser = SessionUtil.getUserFromSession(request);
