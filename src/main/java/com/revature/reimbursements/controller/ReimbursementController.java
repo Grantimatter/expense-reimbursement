@@ -6,7 +6,6 @@ import com.revature.reimbursements.model.User;
 import com.revature.reimbursements.model.dto.ReimbursementDTO;
 import com.revature.reimbursements.model.enumerator.Role;
 import com.revature.reimbursements.service.ReimbursementService;
-import com.revature.reimbursements.service.UserService;
 import com.revature.reimbursements.util.SessionUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
