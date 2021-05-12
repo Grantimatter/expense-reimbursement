@@ -18,7 +18,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
 
-    @Autowired
     public SecurityConfiguration(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
@@ -31,10 +30,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/user/**", "/reimbursement/**").authenticated().anyRequest()
-                .permitAll()
-                .and().authorizeRequests().antMatchers("/auth/**").authenticated().anyRequest().hasAnyRole("MANAGER")
-                .and().formLogin().permitAll();
+        http
+                .authorizeRequests()
+                    .antMatchers("/user/**", "/reimbursement/**").authenticated()
+                    .anyRequest().permitAll()
+                    .and()
+                .formLogin().permitAll();
     }
 
     @Bean

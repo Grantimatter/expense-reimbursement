@@ -31,12 +31,12 @@ public class UserController {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private static final Logger log = LogManager.getLogger(UserController.class);
 
-    @Autowired
-    private  BCryptPasswordEncoder passwordEncoder;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     public UserController(UserService userService, ReimbursementService reimbursementService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.reimbursementService = reimbursementService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     /**
