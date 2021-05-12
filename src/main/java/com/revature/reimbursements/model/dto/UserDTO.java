@@ -17,6 +17,7 @@ public class UserDTO {
     private String lastName;
     private String email;
     private List<Reimbursement> authoredReimbursementList;
+
     private List<Reimbursement> resolvedReimbursementList;
     private Role role;
 }

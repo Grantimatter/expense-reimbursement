@@ -10,11 +10,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class User implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(unique = true, nullable = false)
     private String username;
@@ -31,9 +34,9 @@ public class User implements Serializable {
     @JsonManagedReference(value = "author")
     private List<Reimbursement> authoredReimbursementList;
 
-    @OneToMany(mappedBy="resolver")
+    @OneToMany(mappedBy = "resolver")
     @JsonManagedReference(value = "resolver")
-    private List<Reimbursement> resolvedReimbursements;
+    private List<Reimbursement> resolvedReimbursementList;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

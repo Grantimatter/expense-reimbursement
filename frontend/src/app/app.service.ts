@@ -1,4 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -18,8 +19,8 @@ export class AppService {
         credentials.password)
     } : {});
 
-    this.httpClient.get('user', { headers: headers }).subscribe(response => {
-      if (response['name']) {
+    this.httpClient.get(`${environment.apiUrl}/user`, { headers: headers }).subscribe(response => {
+      if (response['first_name']) {
         this.authenticated = true;
       } else {
         this.authenticated = false;

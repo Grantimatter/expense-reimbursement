@@ -1,6 +1,7 @@
 package com.revature.reimbursements.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @CrossOrigin
 public class Authorization {
 
+    @PreAuthorize("hasAnyRole('MANAGER')")
     @GetMapping
     public ResponseEntity<Map<String, Object>> authTest()
     {
