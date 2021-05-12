@@ -19,7 +19,9 @@ export class AppService {
         credentials.password)
     } : {});
 
-    this.httpClient.get(`${environment.apiUrl}/user`, { headers: headers }).subscribe(response => {
+    headers.append("Access-Control-Allow-Origin", "*");
+
+    this.httpClient.get(`${environment.apiUrl}/auth`, { headers: headers }).subscribe(response => {
       if (response['first_name']) {
         this.authenticated = true;
       } else {
