@@ -29,8 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         if(user != null) {
             userDetails = new CustomUserDetails();
             userDetails.setUser(user);
-            log.debug("User found: " + user.toString());
-
+            log.info("User: " + userDetails.getUsername());
         } else {
             throw new UsernameNotFoundException("User \"" + username + "\" does not exist");
         }

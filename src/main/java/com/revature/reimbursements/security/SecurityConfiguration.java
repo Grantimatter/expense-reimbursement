@@ -35,7 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/user/**", "/reimbursement/**").authenticated()
                     .anyRequest().permitAll()
                     .and()
-                .formLogin().permitAll();
+                .formLogin().permitAll()
+                .and().httpBasic();
     }
 
     @Bean
