@@ -1,6 +1,5 @@
 package com.revature.reimbursements.security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -36,7 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .anyRequest().permitAll()
                     .and()
                 .formLogin().permitAll()
-                .and().httpBasic();
+                .and().httpBasic()
+                .and().cors();
     }
 
     @Bean

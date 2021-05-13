@@ -16,15 +16,17 @@ export class ApiService {
 
   public user: BehaviorSubject<User> ;
 
+  headers = new HttpHeaders({"Access-Control-Allow-Origin":"*"});
+
   public login(loginObject?: any, onSuccess?: (response) => void, onFail?: (error) => void) {
 
-    const headers = new HttpHeaders({"Access-Control-Allow-Origin":"*"});
+
     const login:Object = {"username":loginObject.usernameOrEmail, "password":loginObject.password};
     
     this.app.authenticate(login, ()=>{
 
       if (loginObject) {
-        this.httpClient.post(`${environment.apiUrl}/user/login`, loginObject, {headers: headers}).subscribe(
+        this.httpClient.post(`${environment.apiUrl}/user/login`, loginObject, {headers: this.headers}).subscribe(
           (response: User) => {
             this.user = new BehaviorSubject<User>(response);
             //this.user.next(response);
@@ -36,7 +38,7 @@ export class ApiService {
           }
         );
       } else {
-        this.httpClient.get(`${environment.apiUrl}/user/check`).subscribe(
+        this.httpClient.get(`${environment.apiUrl}/user/check`, {headers: this.headers}).subscribe(
           (response: User) => {
             console.log("Checking if user is logged in!", response);
             this.user.next(response);
@@ -50,7 +52,7 @@ export class ApiService {
   }
 
   public logout(onSuccess?: (response) => void, onFail?: (error) => void): void {
-    this.httpClient.get(`${environment.apiUrl}/user/logout`).subscribe(
+    this.httpClient.get(`${environment.apiUrl}/user/logout`, {headers: this.headers}).subscribe(
       (response) => {
         this.user.next(null);
         if (onSuccess) onSuccess(response)
@@ -60,7 +62,7 @@ export class ApiService {
   }
 
   public updateUser(onSuccess?: (response) => void, onFail?: (error) => void): void {
-    this.httpClient.get(`${environment.apiUrl}/user?username=${this.user.value.username}`).subscribe(
+    this.httpClient.get(`${environment.apiUrl}/user?username=${this.user.value.username}`, {headers: this.headers}).subscribe(
       (response: User) => {
         this.user.next(response);
         if (onSuccess) onSuccess(response);

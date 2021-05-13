@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit {
   greeting = {};
 
   ngOnInit(): void {
-    /*
+    
     this.http.get(`${environment.apiUrl}/user`).subscribe(
       data => {
         this.greeting = data;
@@ -34,7 +34,7 @@ export class LoginPageComponent implements OnInit {
         console.log(err);
       }
     );
-    */
+    
   }
 
   submit(): void {
