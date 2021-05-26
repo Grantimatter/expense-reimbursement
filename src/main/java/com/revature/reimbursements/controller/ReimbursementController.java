@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/reimbursement")
-@CrossOrigin
+@CrossOrigin("http://www.localhost:4200")
 public class ReimbursementController {
 
     private final ReimbursementService reimbursementService;

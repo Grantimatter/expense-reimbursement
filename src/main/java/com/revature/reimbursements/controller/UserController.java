@@ -23,7 +23,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin
+@CrossOrigin("http://www.localhost:4200")
 public class UserController {
 
     private final UserService userService;
